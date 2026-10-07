@@ -1,0 +1,117 @@
+<!-- TODO before launch: set "operator" and "country" in site.config.json, and have a lawyer review this policy.
+     It describes what the app and backend do as of the "last updated" date - update it whenever data handling changes. -->
+<div class="wrap">
+  <article class="doc">
+    <span class="kicker">Legal</span>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Miki: Anime &amp; Manga Tracker &middot; Last updated {{UPDATED}}</p>
+    <p>This policy explains what information Miki collects, why, who it is shared with, and the choices you have. We have tried to write it in plain language. If something is unclear, email <a href="mailto:{{SUPPORT_EMAIL}}">{{SUPPORT_EMAIL}}</a>.</p>
+
+    <nav class="toc" aria-label="Contents">
+      <strong>Contents</strong>
+      <ol>
+        <li><a href="#who">Who we are</a></li>
+        <li><a href="#collect">What we collect</a></li>
+        <li><a href="#use">Why we use it</a></li>
+        <li><a href="#share">Who we share it with</a></li>
+        <li><a href="#youtube">YouTube API Services</a></li>
+        <li><a href="#paid">Paid placements</a></li>
+        <li><a href="#transfers">International transfers</a></li>
+        <li><a href="#keep">How long we keep it</a></li>
+        <li><a href="#rights">Your rights and choices</a></li>
+        <li><a href="#children">Children</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#website">This website</a></li>
+        <li><a href="#changes">Changes</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="who">1. Who we are</h2>
+    <p>Miki: Anime &amp; Manga Tracker ("Miki", "we", "us") is operated by {{OPERATOR}}. For anything about your data, contact <a href="mailto:{{SUPPORT_EMAIL}}">{{SUPPORT_EMAIL}}</a>. Miki is an independent app: it is not affiliated with, endorsed by or connected to MyAnimeList, YouTube, Google or Anime News Network.</p>
+
+    <h2 id="collect">2. What we collect</h2>
+    <p>You can use much of Miki without an account. What we handle depends on which features you use.</p>
+    <table>
+      <thead><tr><th>Feature</th><th>What is involved</th><th>Where it is kept</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Linking MyAnimeList</strong> (optional)</td><td>Sign-in goes through MyAnimeList's own page, so we never see your password. Miki receives an access token and the profile, anime/manga list, scores and progress that MyAnimeList's API shares for your account. Your token is sent with each request so our server can ask MyAnimeList for your data on your behalf; the server does not keep it.</td><td>The token is stored encrypted on your phone. Your list data is shown in the app and is not copied into our own database.</td></tr>
+        <tr><td><strong>Account-linked features</strong></td><td>Your MyAnimeList user id is used to store your AI chat history, your check-in points and streak, how many quizzes you've taken (used for achievements), and a custom profile picture if you upload one.</td><td>Our server (hosted by Railway).</td></tr>
+        <tr><td><strong>Community and the Bugs &amp; Improvements board</strong></td><td>The display name you choose, the text of your posts, answers and comments, your stars, and reports. Posts are tied to a random install id on your phone and shown to other people only as a one-way pseudonymous key - not your MyAnimeList id and not your email.</td><td>Our server.</td></tr>
+        <tr><td><strong>AI features</strong></td><td>What you type to AI Chat, and the parts of your list (for example favourites and scores) used to build recommendations and quizzes, are sent to Google's Gemini API to produce a reply. If you report an AI-generated picture, we store the request you typed (never the picture).</td><td>Sent to Google for processing; chat history and reports on our server.</td></tr>
+        <tr><td><strong>Anime Shorts</strong></td><td>Videos play in YouTube's embedded player (see section 5). Our servers fetch public video information (titles, channel names, video ids, public descriptions and comments) and keep it in memory for a short time.</td><td>Server memory; YouTube handles playback data.</td></tr>
+        <tr><td><strong>Paid placements</strong> (Featured)</td><td>If you pay for a Featured spot we handle the video link, the name you want shown, the amount, and a payment reference. Payment is taken by Stripe on its own page; we never receive card numbers.</td><td>Our server; card details stay with Stripe.</td></tr>
+        <tr><td><strong>On your phone only</strong></td><td>Theme and layout choices, notification settings, which shows you want airing alerts for, authors you've hidden in Community, and which Sponsored clips you've already been shown.</td><td>Your device. It is not sent to us.</td></tr>
+        <tr><td><strong>Technical data</strong></td><td>Like any online service, our servers see your IP address and basic request details. We use these to keep the service running and to limit abuse (for example, per-address rate limits). We do not use them to build advertising profiles.</td><td>Server memory and our hosts' standard logs.</td></tr>
+      </tbody>
+    </table>
+    <p>We do not ask for your contacts, location, microphone or camera, and Miki does not contain advertising or analytics trackers.</p>
+
+    <h2 id="use">3. Why we use it</h2>
+    <ul>
+      <li><strong>To provide Miki</strong> - showing and updating your lists, syncing, stats, achievements, AI replies, Community and payments for paid placements.</li>
+      <li><strong>To keep Miki safe and fair</strong> - filtering offensive or spam posts, handling reports, preventing abuse and enforcing limits (for example, how many AI pictures one person can make in a day).</li>
+      <li><strong>To meet legal obligations</strong> - for example tax records for payments, or responding to lawful requests.</li>
+    </ul>
+    <p>Where the law of your country requires a legal basis (as in the EU/UK): providing the service is necessary to perform our agreement with you; safety and abuse prevention are our legitimate interests; legal duties are legal obligations. We do not sell your personal data and we do not share it with advertisers.</p>
+
+    <h2 id="share">4. Who we share it with</h2>
+    <p>We use these services to run Miki. Each one's own privacy policy governs what it does with data it receives.</p>
+    <ul>
+      <li><strong>MyAnimeList</strong> - your list and profile, when you link your account.</li>
+      <li><strong>Tenrai</strong> - a third-party anime metadata service we ask for character, trailer and theme-song information. We send it the title or id of the anime, not who you are.</li>
+      <li><strong>Google</strong> - Gemini API (AI features; your AI Chat messages and picture requests, plus the list information described above) and YouTube (Anime Shorts).</li>
+      <li><strong>Anime News Network</strong> - our server reads their public news feed. Nothing about you is sent to them; opening a headline takes you to their website.</li>
+      <li><strong>Stripe</strong> - payments for Featured spots.</li>
+      <li><strong>Railway</strong> - hosts our server and database. <strong>Cloudflare</strong> - hosts this website.</li>
+    </ul>
+    <p>We may also disclose information if the law requires it, or to protect people from harm or abuse. If Miki is ever sold or merged, your information may move with it, and we would tell you first.</p>
+
+    <h2 id="youtube">5. YouTube API Services (Anime Shorts)</h2>
+    <p>Anime Shorts plays videos with YouTube's embedded player, and our servers use YouTube API Services to find clips from official anime channels. By using Anime Shorts you agree to be bound by the <a href="https://www.youtube.com/t/terms" rel="noopener">YouTube Terms of Service</a>. Google's <a href="https://policies.google.com/privacy" rel="noopener">Privacy Policy</a> applies to the data YouTube's player and API Services collect - including cookies and viewing activity - when you watch a clip.</p>
+    <p>Miki does not ask for access to your Google or YouTube account and does not read, collect or store any YouTube user data. Our servers keep only public video information in memory for a short time to avoid repeat requests. You can review or revoke access you have granted to Google, in any app, from your <a href="https://security.google.com/settings/security/permissions" rel="noopener">Google security settings</a>.</p>
+
+    <h2 id="paid">6. Paid placements</h2>
+    <p>Two kinds of paid video appear in Shorts. <strong>Featured</strong> videos are bought openly by a named creator on the Featured tab. <strong>Sponsored</strong> clips are arranged by email and open the Shorts feed, always with a visible "Sponsored" label; the label names no advertiser. Advertisers never receive your personal data. The app remembers on your phone which Sponsored clips you've already seen, so none is shown to you more than once a day.</p>
+
+    <h2 id="transfers">7. International transfers</h2>
+    <p>Some of the services above (such as Google, Stripe, Railway and Cloudflare) process data in countries outside your own, including the United States. Where required, they rely on safeguards such as the EU-US Data Privacy Framework or standard contractual clauses.</p>
+
+    <h2 id="keep">8. How long we keep it</h2>
+    <ul>
+      <li>Your AI Chat history stays until you clear it in the app (the bin icon) or ask us to delete it.</li>
+      <li>Community posts, answers and comments stay until you delete them (you can delete your own from the post), they are removed for breaking the rules, or you ask us to delete them.</li>
+      <li>Check-in and quiz counters stay until you ask us to delete them.</li>
+      <li>Reports of AI pictures and community reports are kept for as long as needed to review them and keep Miki safe.</li>
+      <li>Payment records are kept as long as the law requires for accounting.</li>
+      <li>Server logs are kept by our hosts for their standard, short periods.</li>
+      <li>Your token and settings on your phone stay until you unlink, sign out or clear the app's data.</li>
+    </ul>
+
+    <h2 id="rights">9. Your rights and choices</h2>
+    <p>You can, at any time:</p>
+    <ul>
+      <li><strong>Unlink MyAnimeList</strong> from Settings &gt; MyAnimeList Account, which removes the token from your phone.</li>
+      <li><strong>Clear your AI chat</strong>, <strong>delete your Community posts</strong> and <strong>hide authors</strong> from inside the app.</li>
+      <li><strong>Turn off notifications</strong> from Settings &gt; General.</li>
+      <li><strong>Ask us</strong> for a copy of your data, to correct it, or to delete it, and to stop or restrict how we use it. See <a href="/support#delete">how to request deletion</a>.</li>
+    </ul>
+    <p>Depending on where you live (for example the EU, the UK or California), you may have the rights to access, correct, delete, restrict or object to the use of your personal data, to data portability, and to withdraw consent you have given. Write to <a href="mailto:{{SUPPORT_EMAIL}}">{{SUPPORT_EMAIL}}</a> and we will answer within the time the law allows. You also have the right to complain to your local data-protection authority; EU residents can find theirs at <a href="https://www.edpb.europa.eu/about-edpb/about-edpb/members_en" rel="noopener">edpb.europa.eu</a>.</p>
+    <p>Your MyAnimeList account and list live at MyAnimeList; manage or delete them there.</p>
+
+    <h2 id="children">10. Children</h2>
+    <p>Miki is not directed at children under 13 (or the higher minimum age in your country), and we do not knowingly collect personal data from them. If you believe a child has given us personal data, email us and we will delete it.</p>
+
+    <h2 id="security">11. Security</h2>
+    <p>Your token is stored with Android's encrypted storage. Traffic between the app, our server and the services above is encrypted in transit. No system is perfectly secure, so please use a strong password for your MyAnimeList account.</p>
+
+    <h2 id="website">12. This website</h2>
+    <p>This website does not use cookies, advertising or analytics trackers. The accent color you choose on the home page is saved only in your own browser's local storage. Our host, Cloudflare, processes basic request data (such as IP address) to deliver the site and protect it from attacks.</p>
+
+    <h2 id="changes">13. Changes</h2>
+    <p>We may update this policy as Miki changes. The date at the top shows the latest version; if a change is significant we will say so in the app. Continuing to use Miki after a change means you accept the updated policy.</p>
+
+    <h2 id="contact">14. Contact</h2>
+    <p>Questions or requests: <a href="mailto:{{SUPPORT_EMAIL}}">{{SUPPORT_EMAIL}}</a>.</p>
+  </article>
+</div>
