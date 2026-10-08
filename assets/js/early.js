@@ -8,5 +8,6 @@ try {
     var lum = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
     document.documentElement.style.setProperty("--accent", saved);
     document.documentElement.style.setProperty("--accent-ink", lum > 0.5 ? "#0c0c0f" : "#ffffff");
+    document.documentElement.style.setProperty("--glow-pct", saved.toLowerCase() === "#ffffff" ? "14%" : "34%");
   }
 } catch (e) { /* storage blocked - the default accent stays */ }

@@ -95,6 +95,7 @@ function page({ file, path, title, description, body, ogTitle, noindex = false, 
 <title>${title}</title>
 <meta name="description" content="${description}">
 <meta name="theme-color" content="#0b0b0e">
+<meta name="color-scheme" content="dark">
 ${noindex ? '<meta name="robots" content="noindex">' : ""}
 <link rel="canonical" href="${url}">
 <link rel="icon" href="/favicon.ico" sizes="48x48">

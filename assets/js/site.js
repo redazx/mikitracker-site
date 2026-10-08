@@ -31,15 +31,17 @@
     items.forEach(function (el) { el.classList.add("in"); });
   }
 
-  // ---- Accent picker (home page): the same 17 colors as the app's Appearance screen
+  // ---- Accent picker (home page): the same 18 colors as the app's Appearance screen
   var picker = document.getElementById("picker");
   if (picker) {
     var colors = [
-      ["Pink", "#EC407A"], ["Red", "#EF5350"], ["Orange", "#FF9800"], ["Yellow", "#FFC94D"], ["Green", "#4CAF50"], ["Teal", "#26A69A"],
-      ["Cyan", "#26C6DA"], ["Blue", "#2196F3"], ["Purple", "#AB47BC"], ["Royal Blue", "#3F7BE0"], ["Indigo", "#5568D8"],
+      ["Classic", "#FFFFFF"], ["Blue", "#2196F3"], ["Red", "#EF5350"], ["Green", "#4CAF50"], ["Orange", "#FF9800"],
+      ["Yellow", "#FFC94D"], ["Pink", "#EC407A"], ["Purple", "#AB47BC"], ["Teal", "#26A69A"], ["Cyan", "#26C6DA"],
+      ["Royal Blue", "#3F7BE0"], ["Indigo", "#5568D8"],
       ["Deep Purple", "#8E4DE0"], ["Emerald", "#2E9E5B"], ["Crimson", "#D23C4C"], ["Wine", "#B83A6B"], ["Bronze", "#B07A52"], ["Slate", "#7C93A8"],
     ];
     var current = getComputedStyle(document.documentElement).getPropertyValue("--accent").trim().toLowerCase();
+    if (current === "#fff") current = "#ffffff";
     var root = document.documentElement;
     var tickFor = function (hex) {
       var n = parseInt(hex.slice(1), 16), lum = (0.2126 * (n >> 16) + 0.7152 * ((n >> 8) & 255) + 0.0722 * (n & 255)) / 255;
@@ -59,6 +61,7 @@
         var n = parseInt(c[1].slice(1), 16), lum = (0.2126 * (n >> 16) + 0.7152 * ((n >> 8) & 255) + 0.0722 * (n & 255)) / 255;
         root.style.setProperty("--accent", c[1]);
         root.style.setProperty("--accent-ink", lum > 0.5 ? "#0c0c0f" : "#ffffff");
+        root.style.setProperty("--glow-pct", c[1].toLowerCase() === "#ffffff" ? "14%" : "34%");
         picker.querySelectorAll(".swatch").forEach(function (s) { s.setAttribute("aria-pressed", String(s === b)); });
         try { localStorage.setItem("miki-accent", c[1]); } catch (e) { /* ignore */ }
       });
