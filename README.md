@@ -21,7 +21,7 @@ python -m http.server 8080   # then visit http://127.0.0.1:8080
 
 ## Launch-day checklist
 
-1. **Google Play link** - paste it into `assets/js/config.js` (`playStoreUrl`). Every "Coming soon" button turns into "Get it on Google Play".
+1. **Google Play link** - paste it into `assets/js/config.js` (`playStoreUrl`), run `node tools/build.mjs` (it re-versions the asset URLs), commit and push. Every "Coming soon" button then links to the listing. **Then replace the plain text button with Google's official, unmodified "Get it on Google Play" badge** (Google only allows the badge for a live app, linked to its listing; download it from Google's Partner Marketing Hub, keep a quarter-badge-height of clear space).
 2. **Who runs Miki** - fill `operator` and `country` in `site.config.json`, run `node tools/build.mjs`. The privacy policy and terms use these.
 3. **Legal pages** - have a lawyer review `src/pages/privacy.body.html` and `terms.body.html`. Update them (and the date in `site.config.json`) whenever the app's data handling changes.
 4. Replace the screenshots in `assets/img/screens/` when the app's look changes (540x1170 WebP, same file names).
@@ -38,5 +38,7 @@ python -m http.server 8080   # then visit http://127.0.0.1:8080
 Clean URLs work out of the box: `privacy.html` is served at `/privacy`.
 
 ## Fonts
+
+Asset URLs get a `?v=<hash>` suffix on every build, so changed screenshots/CSS are never served stale.
 
 The page font is Google Sans (SIL Open Font License - see `assets/fonts/OFL.txt`), subset to Latin as a ~60 KB WOFF2. No fonts or scripts are loaded from other websites.

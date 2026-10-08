@@ -1,7 +1,8 @@
 // Builds the site's pages: node tools/build.mjs
 // The header, footer and <head> tags live here once; each page's own content is in src/pages/<name>.body.html.
 // The output (index.html, privacy.html, ...) is committed, so Cloudflare Pages needs NO build step - it just serves the files.
-import { readFileSync, writeFileSync } from "node:fs";
+import { createHash } from "node:crypto";
+import { readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -9,6 +10,23 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SITE = "https://mikitracker.top";
 const config = JSON.parse(readFileSync(join(root, "site.config.json"), "utf8"));
 const read = (p) => readFileSync(join(root, p), "utf8");
+
+// A short fingerprint of everything under assets/ (except fonts). Appended to asset URLs as ?v=..., so a changed screenshot or
+// stylesheet is fetched fresh instead of coming from a browser or CDN cache.
+function assetVersion() {
+  const hash = createHash("sha1");
+  const walk = (dir) => {
+    for (const name of readdirSync(join(root, dir)).sort()) {
+      const rel = `${dir}/${name}`;
+      if (statSync(join(root, rel)).isDirectory()) { if (name !== "fonts") walk(rel); }
+      else hash.update(rel).update(readFileSync(join(root, rel)));
+    }
+  };
+  walk("assets");
+  return hash.digest("hex").slice(0, 8);
+}
+const ASSET_V = assetVersion();
+const versioned = (html) => html.replace(/((?:\/|https:\/\/mikitracker\.top\/)assets\/(?:css|js|img)\/[A-Za-z0-9_\-\/.]+\.(?:css|js|png|webp))(?=["')\s])/g, "$1?v=" + ASSET_V);
 
 // Legal pages mention who runs the app. Until site.config.json has the real name, a plain fallback is used (and a warning printed).
 const operator = config.operator?.trim() || "";
@@ -130,7 +148,7 @@ ${footer()}
 </body>
 </html>
 `;
-  writeFileSync(join(root, file), html);
+  writeFileSync(join(root, file), versioned(html));
   console.log("built", file);
 }
 
