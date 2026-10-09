@@ -103,7 +103,8 @@ function footer() {
 </footer>`;
 }
 
-function page({ file, path, title, description, body, ogTitle, noindex = false, jsonld = "" }) {
+function page({ file, path, title, description, body, ogTitle, noindex = false, jsonld = "", scripts = [] }) {
+  const extraScripts = scripts.map((src) => `<script src="${src}" defer></script>`).join("\n");
   const url = `${SITE}${path}`;
   const html = `<!doctype html>
 <html lang="en">
@@ -145,6 +146,7 @@ ${fill(body)}
 ${footer()}
 <script src="/assets/js/config.js"></script>
 <script src="/assets/js/site.js" defer></script>
+${extraScripts}
 </body>
 </html>
 `;
@@ -193,6 +195,25 @@ page({
   title: "Support - Miki",
   description: "Get help with Miki: contact us, report a bug, delete your data, or ask about advertising.",
   body: read("src/pages/support.body.html"),
+});
+// Private report pages: not in the sitemap, and asked to stay out of search results.
+page({
+  file: "sponsor-admin.html",
+  path: "/sponsor-admin",
+  title: "Sponsored report (admin) - Miki",
+  description: "Impressions for Sponsored videos in Miki. Admin only.",
+  body: read("src/pages/sponsor-admin.body.html"),
+  noindex: true,
+  scripts: ["/assets/js/reports.js"],
+});
+page({
+  file: "sponsor-report.html",
+  path: "/sponsor-report",
+  title: "Your Sponsored report - Miki",
+  description: "How often your Sponsored video was shown in Miki.",
+  body: read("src/pages/sponsor-report.body.html"),
+  noindex: true,
+  scripts: ["/assets/js/reports.js"],
 });
 page({
   file: "404.html",

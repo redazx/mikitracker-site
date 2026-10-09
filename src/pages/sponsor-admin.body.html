@@ -1,0 +1,21 @@
+<div class="wrap">
+  <article class="doc rep" style="max-width:1000px" id="rep-admin">
+    <span class="kicker">Admin</span>
+    <h1>Sponsored report</h1>
+    <p class="meta">How often each Sponsored video was shown in Miki, and to how many different phones. Only for Miki's developer.</p>
+
+    <form id="rep-form" class="rep-form" autocomplete="off">
+      <label>Admin key <input id="rep-key" type="password" autocomplete="off" spellcheck="false" required></label>
+      <label>From <input id="rep-from" type="date"></label>
+      <label>To <input id="rep-to" type="date"></label>
+      <button class="btn btn-primary btn-sm" type="submit">Load report</button>
+      <button class="btn btn-ghost btn-sm" type="button" id="rep-csv" hidden>Download CSV</button>
+    </form>
+    <p id="rep-status" class="rep-status" role="status"></p>
+
+    <div id="rep-summary" class="rep-stats" hidden></div>
+    <div id="rep-clips"></div>
+
+    <p class="rep-note"><strong>Impression</strong> = the video came to rest on someone's screen in Miki's Shorts feed. It does not mean it was watched to the end. <strong>Unique viewers</strong> = different app installs (anonymous). Each person counts at most 3 times a day per video.</p>
+  </article>
+</div>

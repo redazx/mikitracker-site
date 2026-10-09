@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Page not found - Miki</title>
-<meta name="description" content="That page doesn't exist.">
+<title>Your Sponsored report - Miki</title>
+<meta name="description" content="How often your Sponsored video was shown in Miki.">
 <meta name="theme-color" content="#0b0b0e">
 <meta name="color-scheme" content="dark">
 <meta name="robots" content="noindex">
-<link rel="canonical" href="https://mikitracker.top/404">
+<link rel="canonical" href="https://mikitracker.top/sponsor-report">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png?v=01dc525e">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png?v=01dc525e">
@@ -16,15 +16,15 @@
 <link rel="preload" href="/assets/fonts/google-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Miki">
-<meta property="og:title" content="Page not found - Miki">
-<meta property="og:description" content="That page doesn't exist.">
-<meta property="og:url" content="https://mikitracker.top/404">
+<meta property="og:title" content="Your Sponsored report - Miki">
+<meta property="og:description" content="How often your Sponsored video was shown in Miki.">
+<meta property="og:url" content="https://mikitracker.top/sponsor-report">
 <meta property="og:image" content="https://mikitracker.top/assets/img/og-image.png?v=01dc525e">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Page not found - Miki">
-<meta name="twitter:description" content="That page doesn't exist.">
+<meta name="twitter:title" content="Your Sponsored report - Miki">
+<meta name="twitter:description" content="How often your Sponsored video was shown in Miki.">
 <meta name="twitter:image" content="https://mikitracker.top/assets/img/og-image.png?v=01dc525e">
 <link rel="stylesheet" href="/assets/css/site.css?v=01dc525e">
 <script src="/assets/js/early.js?v=01dc525e"></script>
@@ -46,12 +46,24 @@
   </div>
 </header>
 <main id="main">
-<div class="wrap center-page">
-  <div>
-    <h1>404</h1>
-    <p class="lead" style="margin:10px auto 28px">That page wandered off. Let's get you back to something good.</p>
-    <a class="btn btn-primary" href="/">Back to Miki</a>
-  </div>
+<div class="wrap">
+  <article class="doc rep" style="max-width:860px" id="rep-sponsor">
+    <span class="kicker">Sponsored report</span>
+    <h1 id="rep-title">Your Sponsored video</h1>
+    <p class="meta" id="rep-meta">Loading your report...</p>
+
+    <div id="rep-summary" class="rep-stats" hidden></div>
+    <form id="rep-form" class="rep-form" hidden>
+      <label>From <input id="rep-from" type="date"></label>
+      <label>To <input id="rep-to" type="date"></label>
+      <button class="btn btn-ghost btn-sm" type="submit">Update</button>
+      <button class="btn btn-primary btn-sm" type="button" id="rep-csv">Download CSV</button>
+    </form>
+    <p id="rep-status" class="rep-status" role="status"></p>
+    <div id="rep-clips"></div>
+
+    <p class="rep-note"><strong>Impression</strong> = your video came to rest on someone's screen in Miki's Shorts feed. It does not mean it was watched to the end. <strong>Unique viewers</strong> = different app installs (anonymous, counted once over the period). Each person counts at most 3 times a day. Questions? <a class="mail" href="mailto:pr@mikitracker.top">pr@mikitracker.top</a></p>
+  </article>
 </div>
 
 </main>
@@ -95,6 +107,6 @@
 </footer>
 <script src="/assets/js/config.js?v=01dc525e"></script>
 <script src="/assets/js/site.js?v=01dc525e" defer></script>
-
+<script src="/assets/js/reports.js?v=01dc525e" defer></script>
 </body>
 </html>

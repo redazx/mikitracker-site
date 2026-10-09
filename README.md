@@ -42,3 +42,9 @@ Clean URLs work out of the box: `privacy.html` is served at `/privacy`.
 Asset URLs get a `?v=<hash>` suffix on every build, so changed screenshots/CSS are never served stale.
 
 The page font is Google Sans (SIL Open Font License - see `assets/fonts/OFL.txt`), subset to Latin as a ~60 KB WOFF2. No fonts or scripts are loaded from other websites.
+
+## Sponsored reports
+
+`/sponsor-admin` (you) and `/sponsor-report?c=..&t=..` (a sponsor's private link) read impression numbers from the Miki server, so they work only
+once the backend has `REPORTS_ADMIN_KEY` set (see `backend/.env.example`). Both pages are `noindex` and are not in the sitemap. The server address is
+`apiBase` in `assets/js/config.js`, and `_headers` allows the site to call it (`connect-src`) - if the server's address ever changes, change both.
