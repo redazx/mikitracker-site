@@ -238,3 +238,24 @@ section { padding: 90px 0; position: relative; overflow-x: clip; }
 .rep-table th, .rep-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); }
 .rep-table th { color: var(--muted); font-weight: 600; }
 .rep-note { margin-top: 28px; color: var(--muted); font-size: 15px; }
+
+/* ---- Community review page (/community-admin) ---- */
+.cm-h { font-size: 22px; margin: 34px 0 12px; }
+.cm-card h3 { margin: 10px 0 4px; }
+.cm-badges { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.cm-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; padding: 4px 11px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); color: var(--muted); }
+.cm-badge.cm-hot { color: #ffd2a8; border-color: rgba(255, 170, 90, .35); }
+.cm-badge.cm-warn { color: #ffb4b4; border-color: rgba(255, 120, 120, .35); }
+.cm-text { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 260px; overflow: auto; margin: 10px 0 14px; padding: 12px 14px; border-radius: 14px; background: var(--bg); border: 1px solid var(--line); color: var(--text); font-size: 15px; line-height: 1.5; }
+.cm-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.cm-panel { display: grid; gap: 10px; margin-top: 4px; }
+.cm-input { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; width: 100%; box-sizing: border-box; }
+.cm-input:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
+.cm-inline { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 15px; }
+.cm-inline .cm-input { width: auto; }
+.btn-danger { background: #3a1618; color: #ffb4b4; border: 1px solid #6b2a2e; }
+.btn-danger:hover { background: #4a1c1f; transform: translateY(-2px); }
+.cm-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.cm-x { font: inherit; font-size: 12px; line-height: 1; cursor: pointer; color: var(--muted); background: transparent; border: 0; padding: 2px 4px; }
+.cm-x:hover { color: var(--text); }
+.cm-actions[hidden] { display: none; }

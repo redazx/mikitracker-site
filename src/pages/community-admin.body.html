@@ -1,0 +1,32 @@
+<div class="wrap">
+  <article class="doc rep" style="max-width:1000px" id="cm-admin">
+    <span class="kicker">Admin</span>
+    <h1>Community review</h1>
+    <p class="meta">Posts and comments that members have reported. Decide what stays, send a warning that the person sees in the app, or pause their posting. Only for Miki's developer.</p>
+
+    <form id="cm-form" class="rep-form" autocomplete="off">
+      <label>Admin key <input id="cm-key" type="password" autocomplete="off" spellcheck="false" required></label>
+      <button class="btn btn-primary btn-sm" type="submit">Load</button>
+      <button class="btn btn-ghost btn-sm" type="button" id="cm-refresh" hidden>Refresh</button>
+    </form>
+    <p id="cm-status" class="rep-status" role="status"></p>
+
+    <div id="cm-summary" class="rep-stats" hidden></div>
+
+    <h2 class="cm-h" id="cm-queue-h" hidden>Waiting for a decision</h2>
+    <div id="cm-queue"></div>
+
+    <h2 class="cm-h" id="cm-muted-h" hidden>Paused from posting</h2>
+    <div id="cm-muted"></div>
+
+    <h2 class="cm-h" id="cm-terms-h" hidden>Blocked words</h2>
+    <p class="meta" id="cm-terms-note" hidden>Anything containing one of these words or phrases is refused when someone posts. It matches whole words only, so a short word does not catch longer ones.</p>
+    <form id="cm-term-form" class="rep-form" autocomplete="off" hidden>
+      <label>Add a word or phrase <input id="cm-term" type="text" maxlength="40" spellcheck="false"></label>
+      <button class="btn btn-ghost btn-sm" type="submit">Block it</button>
+    </form>
+    <div id="cm-terms" class="cm-chips"></div>
+
+    <p class="rep-note"><strong>Keep</strong> clears the reports and brings the item back if it was hidden. <strong>Delete</strong> removes it for good. <strong>Warn</strong> sends the author your message, shown as a banner in Community and then read in full. <strong>Pause posting</strong> lets them read but not write for the time you choose, with your message explaining why. An author whose posts are hidden three times in a week is paused for a day automatically; you will see them under "Paused from posting" and can lift it.</p>
+  </article>
+</div>

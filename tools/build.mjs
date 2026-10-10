@@ -207,6 +207,15 @@ page({
   scripts: ["/assets/js/reports.js"],
 });
 page({
+  file: "community-admin.html",
+  path: "/community-admin",
+  title: "Community review (admin) - Miki",
+  description: "Review reported Community posts. Admin only.",
+  body: read("src/pages/community-admin.body.html"),
+  noindex: true,
+  scripts: ["/assets/js/community-admin.js"],
+});
+page({
   file: "sponsor-report.html",
   path: "/sponsor-report",
   title: "Your Sponsored report - Miki",
